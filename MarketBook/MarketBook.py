@@ -27,6 +27,10 @@ class MarketBook(object):
         print ('Bid=' + str(self.__BestBidPrice))
         print ('Spread=' + str(spread))
 
+        noOfTrades = len(self.__Trades)
+        lastTrade = self.__Trades[noOfTrades-1] if noOfTrades>0 else (0, 0, 0)
+        print ('Last=' + str(lastTrade[2]) + ' @ ' + str(lastTrade[1]) + ' at ' + str(lastTrade[0]))
+
     #setter    
     def processChange(self, change):
         if change['reason']=='initial':
